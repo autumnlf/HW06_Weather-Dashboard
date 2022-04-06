@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Woah, bro. get ready for this wicked html :) -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|Montserrat:300,400,500,600,700,800,900">
+</head>
+
+<body>
+    <header>
+        <h1>Weather Dashboard</h1>
+
+        <form class="searchbar">
+            <input id="searchbar" class="searchinput" type="search" placeholder="    Search City">
+            <button id="searchbtn" type="button" class="searchbtn"><i class="fas fa-search" style="font-size: 16px; color: white;"></i></button>
+        </form>
+
+    </header>
+
+    <div class="subheader">
+        <div class="cities">
+            <a id="city1">Knoxville</a>
+            <a id="city2">Pigeon Forge</a>
+            <a id="city3">Atlanta</a>
+            <a id="city4">Milledgeville</a>
+            <a id="city5">Dublin</a>
+        </div>
+    </div>
+
+    <h2 id="citytitle">Sevierville</h2>
+    <section class="content">
+        <div>
+
+            <section class="info">
+                
+                <div class="currentinfo">
+                    <p id="currenttemp">70°</p>
+                    <p id="currentwind">10 mph</p>
+                    <p id="currenthumidity">50%</p>
+                    <p id="currentuv">0.47</p>
+                </div>
+
+                <div class="infotitles">
+                    <p>Temperature</p>
+                    <p>Wind</p>
+                    <p>Humidity</p>
+                    <p>UV Index</p>
+                </div>
+
+                <div class="highlow">
+                    <p id="hltemp">H/L: </p>
+                    <p id="hlwind"> </p>
+                    <p id="hlhumidity">- </p>
+                    <p id="hluv">H/L: </p>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="currently" style="background-image: url('./assets/rainbow-4285843_1920.jpg');">
+            <p id="date">Monday April 4, 2022</p>
+            <p id="time">10:34 am</p>
+        </div>
+
+    </section>
+
+
+    <footer>
+        <h3>5 Day Forecast</h3>
+
+        <section class="footcontain">
+            <div class="forecast" style="background-image: url('./assets/rainbow-4285843_1920.jpg');">
+                <p>70°</p>
+                <p>4/5</p>  
+            </div>   
+            <div class="forecast" style="background-image: url('./assets/cloud-1117279_1920.jpg');">
+                <p>70°</p>
+                <p>4/5</p> 
+            </div>
+            <div class="forecast" style="background-image: url('./assets/cloudy-g07eb06637_1920.jpg');">
+                <p>70°</p>
+                <p>4/5</p> 
+            </div>
+            <div class="forecast" style="background-image: url('./assets/dark-1850684_1920.jpg');">
+                <p>70°</p>
+                <p>4/5</p> 
+            </div>
+            <div class="forecast" style="background-image: url('./assets/snow-4668099_1920.jpg');">
+                <p>70°</p>
+                <p>4/5</p> 
+            </div>
+        </section>
+
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

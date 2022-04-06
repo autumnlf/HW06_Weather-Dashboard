@@ -1,0 +1,225 @@
+:root{
+    --light: #C3D9EE;
+    --mid: #85A9CB;
+    --dark: #2B5F8E;
+    --darkest: #293E52;
+    --txtshadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+    --boxshadow: 2px 3px 6px rgb(0, 0, 0, 0.25);
+}
+
+header{
+    height: 60px;
+    width: 100%;
+    left: 0;
+    background: var(--dark);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    margin: 0;
+}
+
+body{
+    background-color: var(--light);
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    margin: 0;
+    height: 100%;
+}
+
+h1{
+    font-weight: 600;
+    font-size: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.searchbar{
+    display: flex;
+    flex-wrap: nowrap;
+    align-self: center;
+}
+
+.searchinput{
+    height: 30px;
+    width: 360px;
+    border-radius: 40px;
+    border: none;
+    color: var(--darkest);
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: var(--boxshadow);
+}
+
+.searchbtn{
+    height: 30px;
+    width: 30px;
+    border-radius: 40px;
+    border: none;
+    background-color: var(--light);
+    margin-left: 6px;
+    box-shadow: var(--boxshadow);
+}
+
+.searchbtn:hover{
+    background-color: var(--mid);
+    box-shadow: none;
+}
+
+.subheader{
+    width: 100%;
+    height: max-content;
+    background-color: var(--mid);
+    margin: 0;
+}
+
+.cities{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0;
+    height: 40px;
+    color: var(--darkest);
+    font-size: 20px;
+    font-weight: 500;
+    align-items: center;
+}
+
+.cities a:hover{
+    font-weight: 800;
+}
+
+.content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-left: 50px;
+}
+
+h2{
+    color: var(--dark);
+    width: fit-content;
+    font-size: 28px;
+    font-weight: 800;
+    padding: 0;
+    margin: 15px 0 -8px 70px;
+    justify-self: center;
+}
+
+.info{
+    width: 600px;
+    height: 220px;
+    margin: 0 15px 15px 0;
+    background-color: var(--darkest);
+    border-radius: 15px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.currentinfo{
+    color: white;
+    font-size: 18px;
+    text-align: right;
+    line-height: 30px;
+    font-weight: 500;
+}
+
+.infotitles{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 800;
+}
+
+.highlow{
+    color: white;
+    font-size: 18px;
+    text-align: left;
+    line-height: 30px;
+    font-weight: 500;
+}
+
+.currently{
+    width: 300px;
+    height: 220px;
+    margin: 0 10px 0 0;
+    border-radius: 15px;
+    border: none;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.currently p{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 800;
+    text-shadow: var(--txtshadow);
+}
+
+footer{
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    
+}
+
+h3{
+    color: var(--dark);
+    font-size: 26px;
+    font-weight: 800;
+    padding: 0;
+    margin: 0 0 -8px 50px;
+}
+
+.footcontain{
+    width: 100%;
+    height: 210px;
+    background-color: var(--mid);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.forecast{
+    width: 175px;
+    height: 175px;
+    background-color: gray;
+    border-radius: 300px;
+    background-size: cover;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.forecast :first-child{
+    width: 100%;
+    text-align: center;
+    margin: 65px 0 10px 0;
+    font-size: 30px;
+    font-weight: 800;
+    color: white;
+    text-shadow: var(--txtshadow);
+}
+
+.forecast :nth-child(2){
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+    text-shadow: var(--txtshadow);
+}
