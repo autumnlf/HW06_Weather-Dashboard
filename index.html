@@ -13,92 +13,77 @@
 </head>
 
 <body>
-    <header>
-        <h1>Weather Dashboard</h1>
 
-        <form class="searchbar">
-            <input id="searchbar" class="searchinput" type="search" placeholder="    Search City">
-            <button id="searchbtn" type="button" class="searchbtn"><i class="fas fa-search" style="font-size: 16px; color: white;"></i></button>
-        </form>
+    
+        <header>
+            <h1>Weather Dashboard</h1>
 
-    </header>
+            <form class="searchbar">
+                <input id="searchbar" class="searchinput" type="search" placeholder="    Search City">
+                <button id="searchbtn" type="button" class="searchbtn"><i class="fas fa-search" style="font-size: 16px; color: white;"></i></button>
+            </form>
 
-    <div class="subheader">
-        <div class="cities">
-            <a id="city1">Knoxville</a>
-            <a id="city2">Pigeon Forge</a>
-            <a id="city3">Atlanta</a>
-            <a id="city4">Milledgeville</a>
-            <a id="city5">Dublin</a>
-        </div>
-    </div>
+        </header>
 
-    <h2 id="citytitle"></h2>
-    <section class="content">
-        <div>
-
-            <section class="info">
-                
-                <div class="currentinfo">
-                    <p id="currenttemp"></p>
-                    <p id="currentwind"></p>
-                    <p id="currenthumidity"></p>
-                    <p id="currentuv"></p>
-                </div>
-
-                <div class="infotitles">
-                    <p>Temperature</p>
-                    <p>Wind</p>
-                    <p>Humidity</p>
-                    <p>UV Index</p>
-                </div>
-
-                <div class="highlow">
-                    <p id="hltemp">-</p>
-                    <p id="hlwind">-</p>
-                    <p id="hlhumidity">-</p>
-                    <p id="hluv">-</p>
-                </div>
-            </section>
-
+        <div class="subheader">
+            <div class="cities">
+                <a id="city1">Knoxville</a>
+                <a id="city2">Pigeon Forge</a>
+                <a id="city3">Atlanta</a>
+                <a id="city4">Milledgeville</a>
+                <a id="city5">Dublin</a>
+            </div>
         </div>
 
-        <div class="currently" style="background-image: url('./assets/rainbow-4285843_1920.jpg');">
-            <p id="date"></p>
-            <p id="time">   </p>
-        </div>
+        <h2 id="citytitle"></h2>
+        <section class="content">
+            <div>
 
-    </section>
+                <section class="info">
+                    
+                    <div class="currentinfo">
+                        <p id="currenttemp"></p>
+                        <p id="currentwind"></p>
+                        <p id="currenthumidity"></p>
+                        <p id="currentuv"></p>
+                    </div>
 
+                    <div class="infotitles">
+                        <p>Temperature</p>
+                        <p>Wind</p>
+                        <p>Humidity</p>
+                        <p>UV Index</p>
+                    </div>
 
-    <footer>
-        <h3>5 Day Forecast</h3>
+                    <div class="highlow">
+                        <p id="hltemp">-</p>
+                        <p id="hlwind">-</p>
+                        <p id="hlhumidity">-</p>
+                        <p id="hluv">-</p>
+                    </div>
+                </section>
 
-        <section class="footcontain">
-            <div id="forecast1" class="forecast" style="background-image: url('./assets/rainbow-4285843_1920.jpg');">
-                <p id="temp1">70°</p>
-                <p id="day1"></p>  
-            </div>   
-            <div id="forecast2" class="forecast" style="background-image: url('./assets/cloud-1117279_1920.jpg');">
-                <p id="temp2">70°</p>
-                <p id="day2"></p> 
             </div>
-            <div id="forecast3" class="forecast" style="background-image: url('./assets/cloudy-g07eb06637_1920.jpg');">
-                <p id="temp3">70°</p>
-                <p id="day3"></p> 
+
+            <div class="currently" id="currentImg">
+                <p id="date"></p>
+                <p id="time"></p>
+                <p id="weather" class="weather"></p>
             </div>
-            <div id="forecast4" class="forecast" style="background-image: url('./assets/dark-1850684_1920.jpg');">
-                <p id="temp4">70°</p>
-                <p id="day4"></p> 
-            </div>
-            <div id="forecast5" class="forecast" style="background-image: url('./assets/snow-4668099_1920.jpg');">
-                <p id="temp5">70°</p>
-                <p id="day5"></p> 
-            </div>
+
         </section>
 
-    </footer>
 
+        <footer>
+            <h3>5 Day Forecast</h3>
+
+            <section class="footcontain" id="forecastContainer">
+            </section>
+
+        </footer>
+
+        
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./script.js"></script>
 </body>
