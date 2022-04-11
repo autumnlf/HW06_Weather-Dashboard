@@ -16,11 +16,6 @@ var day5 = document.getElementById("day5");
 //displaying the current date and time
 date.innerText = currentDate;
 time.innerText = currentTime;
-// day1.innerText = moment().add(1, 'day').format('MM/DD');
-// day2.innerText = moment().add(2, 'day').format('MM/DD');
-// day3.innerText = moment().add(3, 'day').format('MM/DD');
-// day4.innerText = moment().add(4, 'day').format('MM/DD');
-// day5.innerText = moment().add(5, 'day').format('MM/DD');
 
 //this array is pre-filled in cities that will be replaced with user search history.
 var cities = ['Knoxville', 'Pigeon Forge', 'Atlanta', 'Milledgeville', 'Dublin'];
@@ -167,13 +162,6 @@ function forecast(){
       currentuv.setAttribute('class', 'extreme');
     }
 
-    //set temperature display for 5-day forecasts
-    // temp1.innerText = Math.round(data.daily[0].temp.day) + '°';
-    // temp2.innerText = Math.round(data.daily[1].temp.day) + '°';
-    // temp3.innerText = Math.round(data.daily[2].temp.day) + '°';
-    // temp4.innerText = Math.round(data.daily[3].temp.day) + '°';
-    // temp5.innerText = Math.round(data.daily[4].temp.day) + '°';
-
     //displaying the curennt weather description
     currentweather.innerText = data.current.weather[0].description;
 
@@ -254,9 +242,7 @@ function forecast(){
       forecastContainer.appendChild(forecastdiv);
       forecastdiv.appendChild(forecastTemp);
       forecastdiv.appendChild(forecastDay);
-
     }
-   
 
   });
 
