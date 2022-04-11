@@ -1,14 +1,25 @@
 var key = '27b5e63c65752cfa7f1cc398fef6d406';
 var currentDate = moment().format("dddd MMMM Do, YYYY");
-var currentTime = moment().format("hh:mm a")
+var currentTime = moment().format("hh:mm a");
+
 console.log(currentDate);
 console.log(currentTime);
 
 var date = document.getElementById("date");
 var time = document.getElementById("time");
+var day1 = document.getElementById("day1");
+var day2 = document.getElementById("day2");
+var day3 = document.getElementById("day3");
+var day4 = document.getElementById("day4");
+var day5 = document.getElementById("day5");
 
 date.innerText = currentDate;
 time.innerText = currentTime;
+day1.innerText = moment().add(1, 'day').format('MM/DD');
+day2.innerText = moment().add(2, 'day').format('MM/DD');
+day3.innerText = moment().add(3, 'day').format('MM/DD');
+day4.innerText = moment().add(4, 'day').format('MM/DD');
+day5.innerText = moment().add(5, 'day').format('MM/DD');
 
 var cities = ['Knoxville', 'Pigeon Forge', 'Atlanta', 'Milledgeville', 'Dublin'];
 console.log(cities);
@@ -28,8 +39,14 @@ var currenthumidity = document.getElementById("currenthumidity");
 var currentuv = document.getElementById("currentuv");
 var hltemp = document.getElementById("hltemp");
 var hlwind = document.getElementById("hlwind");
-var hlhumidity = document.getElementById("hlhumidity");
 var hluv = document.getElementById("hluv");
+
+var temp1 = document.getElementById("temp1");
+var temp2 = document.getElementById("temp2");
+var temp3 = document.getElementById("temp3");
+var temp4 = document.getElementById("temp4");
+var temp5 = document.getElementById("temp5");
+
 
 searchbtn.onclick = citysearch;
 
@@ -53,30 +70,97 @@ function citysearch(){
     weathersearch();
 }
 
+
+var lat = '';
+var lon = '';
+
 function weathersearch() {
-    var weatherapi = 'https://api.openweathermap.org/data/2.5/weather?q=' + cities[0] + '&units=imperial&appid=27b5e63c65752cfa7f1cc398fef6d406';
-    citytitle.innerText = cities[0];
+  var weatherapi = 'https://api.openweathermap.org/data/2.5/weather?q=' + cities[0] + '&units=imperial&appid=' + key;
+  citytitle.innerText = cities[0];
 
-    fetch(weatherapi)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data)
+  fetch(weatherapi)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data)
 
-        console.log(data.main.temp);
-        currenttemp.innerText = data.main.temp + '°';
-        hltemp.innerText = 'H/L: ' + data.main.temp_max + '°/' + data.main.temp_min + '°';
+    console.log(data.main.temp);
+    currenttemp.innerText = data.main.temp + '°';
+    hltemp.innerText = 'H/L: ' + data.main.temp_max + '°/' + data.main.temp_min + '°';
 
-        currenthumidity.innerText = data.main.humidity;
+    currenthumidity.innerText = data.main.humidity;
 
-        console.log(data.wind);
-        currentwind.innerText = data.wind.speed + ' mph';
-        hlwind.innerText = data.wind.deg + ' deg';
-      });
+    console.log(data.wind);
+    currentwind.innerText = data.wind.speed + ' mph';
+    hlwind.innerText = data.wind.deg + ' deg';
+
+    lat = data.coord.lat;
+    lon = data.coord.lon;
+    console.log(lat);
+    console.log(lon);
+
+    forecast();
+  });
+
+  
+    
 }
 
 
+function forecast(){
+  var forecastapi = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=imperial&appid=' + key;
+  
+  fetch(forecastapi)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data)
+
+    console.log(data.current.uvi);
+    currentuv.innerText = data.current.uvi;
+
+    if (data.current.uvi < 2.999){
+      hluv.innerText = 'Low';
+      hluv.setAttribute('class', 'low');
+      currentuv.setAttribute('class', 'low');
+    }
+    else if (data.current.uvi < 5.999) {
+      hluv.innerText = 'Moderate';
+      hluv.setAttribute('class', 'moderate');
+      currentuv.setAttribute('class', 'moderate');
+    }
+    else if (data.current.uvi < 7.999) {
+      hluv.innerText = 'High';
+      hluv.setAttribute('class', 'high');
+      currentuv.setAttribute('class', 'high');
+    }
+    else if (data.current.uvi < 10.999) {
+      hluv.innerText = 'Very High';
+      hluv.setAttribute('class', 'veryhigh');
+      currentuv.setAttribute('class', 'veryhigh');
+    }
+    else if (data.current.uvi > 11) {
+      hluv.innerText = 'Extreme';
+      hluv.setAttribute('class', 'extreme');
+      currentuv.setAttribute('class', 'extreme');
+    }
+
+
+    temp1.innerText = Math.round(data.daily[0].temp.day) + '°';
+    temp2.innerText = Math.round(data.daily[1].temp.day) + '°';
+    temp3.innerText = Math.round(data.daily[2].temp.day) + '°';
+    temp4.innerText = Math.round(data.daily[3].temp.day) + '°';
+    temp5.innerText = Math.round(data.daily[4].temp.day) + '°';
+
+
+  });
+
+}
+
+
+// When cities from search history are clicked
 city1.onclick = weathercity1;
 city2.onclick = weathercity2;
 city3.onclick = weathercity3;
@@ -105,11 +189,16 @@ function weathercity1() {
       currentwind.innerText = data.wind.speed + ' mph';
       hlwind.innerText = data.wind.deg + ' deg';
 
-      
+      lat = data.coord.lat;
+      lon = data.coord.lon;
+      console.log(lat);
+      console.log(lon);
+  
+      forecast();
     }
   );
-
 }
+
 function weathercity2() {
   var weatherapi = 'https://api.openweathermap.org/data/2.5/weather?q=' + cities[1] + '&units=imperial&appid=27b5e63c65752cfa7f1cc398fef6d406';
   citytitle.innerText = cities[1];
@@ -130,6 +219,13 @@ function weathercity2() {
       console.log(data.wind);
       currentwind.innerText = data.wind.speed + ' mph';
       hlwind.innerText = data.wind.deg + ' deg';
+
+      lat = data.coord.lat;
+      lon = data.coord.lon;
+      console.log(lat);
+      console.log(lon);
+  
+      forecast();
     });
 }
 function weathercity3() {
@@ -152,6 +248,13 @@ function weathercity3() {
       console.log(data.wind);
       currentwind.innerText = data.wind.speed + ' mph';
       hlwind.innerText = data.wind.deg + ' deg';
+
+      lat = data.coord.lat;
+      lon = data.coord.lon;
+      console.log(lat);
+      console.log(lon);
+  
+      forecast();
     });
 }
 function weathercity4() {
@@ -174,6 +277,13 @@ function weathercity4() {
       console.log(data.wind);
       currentwind.innerText = data.wind.speed + ' mph';
       hlwind.innerText = data.wind.deg + ' deg';
+
+      lat = data.coord.lat;
+      lon = data.coord.lon;
+      console.log(lat);
+      console.log(lon);
+  
+      forecast();
     });
 }
 function weathercity5() {
@@ -196,5 +306,12 @@ function weathercity5() {
       console.log(data.wind);
       currentwind.innerText = data.wind.speed + ' mph';
       hlwind.innerText = data.wind.deg + ' deg';
+
+      lat = data.coord.lat;
+      lon = data.coord.lon;
+      console.log(lat);
+      console.log(lon);
+  
+      forecast();
     });
 }

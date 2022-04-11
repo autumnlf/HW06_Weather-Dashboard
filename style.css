@@ -223,3 +223,29 @@ h3{
     color: white;
     text-shadow: var(--txtshadow);
 }
+
+/* uv index colors */
+.low{
+    color:green;
+    font-weight: 600;
+}
+
+.moderate{
+    color:yellow;
+    font-weight: 600;
+}
+
+.high{
+    color: orange;
+    font-weight: 600;
+}
+
+.veryhigh{
+    color: red;
+    font-weight: 600;
+}
+
+.extreme{
+    color: magenta;
+    font-weight: 600;
+}
